@@ -8,19 +8,47 @@
 </head>
 <body>
   <div id="root">
-
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 
   <script>
-    function createDiv () {
+    // function createDiv () {
+    //   const root = document.getElementById('root');
+    //   let createDiv = document.createElement('div');
+    //   createDiv.setAttribute('class', 'list');
+    //   root.appendChild(createDiv);
+    // }
 
-      const root = document.getElementById('root');
-      let createDiv = document.createElement('div');
-      createDiv.setAttribute('class', 'list');
-      root.appendChild(createDiv);
+    const root = document.getElementById('root');
+    root.style.width = "100vw";
+    root.style.height = "100vh";
+    root.style.backgroundColor = "#ccc";
+    root.style.display = "flex";
+    root.style.flexDirection = "column";
+    root.style.justifyContent = "center";
+    root.style.alignItems = "center";
+    root.style.textAlign = "center";
 
+    
+
+    for(let i = 0; i < root.children.length; i++) {
+      root.children[i].style.width = "500px";
+      root.children[i].style.height = "100px";
+      root.children[i].style.border = "1px solid black";
+      root.children[i].style.borderRadius = "30px";
     }
 
+
+    root.children[root.children.length - 1].style.backgroundColor = "skyblue";
+    root.children[root.children.length - 1].style.borderRadius =  "30px";
+
+  
 
     let userInfo = {
       myName : "박준형",
@@ -30,24 +58,22 @@
       address : {
         city : "대전광역시",
         state : "서구",
-        dong : "복수",
+        dong : "복수동",
         postNumber : 35407,
         hostName : "복수동로"
       },
-      totalAddress :(function (city, state, dong, postNumber) {
-        return `${userInfo.address.city}시 ${userInfo.address.state} ${userInfo.address.dong}, 우편번호 : ${userInfo.address.postNumber}`;
-      }),
+      totalAddress : function (city, state, dong, postNumber) {
+        return `${userInfo.address.city} ${userInfo.address.state} ${userInfo.address.dong}, 우편번호 : ${userInfo.address.postNumber}`;
+      }
     };
 
-  const person = {
-    name: ['Max', 'Seokju'],
-    age: 33,
-    gender: 'male',
-    sayHi: function() {
-      alert(`Hi! I'm ${this.name[0]}.`);
-    }
-  };
-  person.sayHi();
+    root.children[0].innerHTML =  `이름 : ${userInfo.myName}`;
+    root.children[1].innerHTML =  `나이 : ${userInfo.age}`;
+    root.children[2].innerHTML =  `성별 : ${userInfo.gender}`;
+    root.children[3].innerHTML =  `Github : ${userInfo.githubAddress}`;
+    root.children[4].innerHTML =  `주소 : ${userInfo.totalAddress()}`;
+    root.children[5].innerHTML =  `주소 : ${userInfo.totalAddress()}`;
+    root.children[6].innerHTML =  `계속하기`;
 
   </script>
 </body>
