@@ -7,6 +7,39 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <div id="root">
+
+  </div>
+
+  <script>
+    function createDiv () {
+
+      const root = document.getElementById('root');
+      let createDiv = document.createElement('div');
+      createDiv.setAttribute('class', 'list');
+      root.appendChild(createDiv);
+
+    }
+
+
+    let userInfo = {
+      myName : "박준형",
+      age : 29,
+      gender : "male",
+      githubAddress : "https://github.com/krapli441",
+      address : {
+        city : "대전광역시",
+        state : "서구",
+        dong : "복수",
+        postNumber : 35407,
+        hostName : "복수동로"
+      },
+      totalAddress : function allAddress(city, state, dong, postNumber) {
+        return `${city}시 ${state} ${dong}, 우편번호 : ${postNumber}`;
+      }
+    };
+
+
+  </script>
 </body>
 </html>
